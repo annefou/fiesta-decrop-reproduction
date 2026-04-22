@@ -1,0 +1,17 @@
+version: 1
+project:
+  title: "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier"
+  authors:
+    - name: Anne Fouilloux
+      orcid: 0000-0002-1784-2920
+      affiliations:
+        - LifeWatch ERIC
+  github: https://github.com/annefou/fiesta-decrop-reproduction
+  license: MIT
+  toc:
+    - file: index.md
+    - file: 01_reproduce_decrop.ipynb
+
+site:
+  title: "Reproduction of Decrop et al. 2025"
+  base_url: /fiesta-decrop-reproduction

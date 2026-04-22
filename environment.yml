@@ -1,0 +1,27 @@
+name: fiesta-decrop-reproduction
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy>=1.26,<2.2
+  - pillow
+  - scikit-learn
+  - pandas
+  - pyyaml
+  - requests
+  - tqdm
+  - matplotlib
+  - jupytext
+  - nbclient
+  - ipykernel
+  - p7zip
+  - pip:
+      - tensorflow==2.19.0
+      - protobuf>=3.20,<6.0
+      - opencv-python>=4.5
+      - albumentations~=2.0.5
+      # Decrop et al.'s official inference toolkit. No deepaas pins needed
+      # for local inference, so we install the Python package directly.
+      - planktonclas==0.2.0
+      - zenodo-get

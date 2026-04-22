@@ -1,0 +1,79 @@
+name: Build and Deploy Jupyter Book
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Micromamba
+        uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environment.yml
+          environment-name: fiesta-decrop-reproduction
+          init-shell: bash
+          cache-environment: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Install MyST
+        run: npm install -g mystmd
+
+      - name: Download dataset from Zenodo
+        shell: micromamba-shell {0}
+        run: |
+          mkdir -p data
+          cd data
+          zenodo_get 10554845 --retry 3 || true
+          if ls *.7z 1>/dev/null 2>&1; then
+            7z x *.7z -oextract || true
+            mv extract/images_DS . 2>/dev/null || true
+          fi
+
+      - name: Execute notebook (smoke-test subset)
+        shell: micromamba-shell {0}
+        run: |
+          jupytext --to notebook 01_reproduce_decrop.py
+          jupyter execute --inplace 01_reproduce_decrop.ipynb || \
+            echo "Notebook execution failed (data may not be available)"
+
+      - name: Build MyST site
+        env:
+          BASE_URL: /${{ github.event.repository.name }}
+        run: myst build --html
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _build/html
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,49 @@
+name: CI smoke run
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Micromamba
+        uses: mamba-org/setup-micromamba@v3
+        with:
+          environment-file: environment.yml
+          environment-name: fiesta-decrop-reproduction
+          init-shell: bash
+          cache-environment: true
+
+      - name: Download dataset from Zenodo
+        shell: micromamba-shell {0}
+        run: |
+          mkdir -p data
+          cd data
+          zenodo_get 10554845 --retry 3 || true
+          if ls *.7z 1>/dev/null 2>&1; then
+            7z x *.7z -oextract || true
+            mv extract/images_DS . 2>/dev/null || true
+          fi
+
+      - name: Run smoke-test reproduction
+        shell: micromamba-shell {0}
+        run: |
+          jupytext --to notebook 01_reproduce_decrop.py
+          jupyter execute --inplace 01_reproduce_decrop.ipynb
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results/

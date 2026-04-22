@@ -1,0 +1,81 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "version": "0.1.0",
+  "name": "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier",
+  "description": "Independent computational reproduction of the EfficientNetV2-B0 phytoplankton classifier published in Decrop et al. 2025 (Frontiers in Marine Science). Runs the authors' own pretrained weights on their exact held-out test split and confirms all five published metrics to within 0.003 percentage points. Part of the FIESTA-OSCARS project.",
+  "license": "https://spdx.org/licenses/MIT",
+  "codeRepository": "https://github.com/annefou/fiesta-decrop-reproduction",
+  "dateCreated": "2026-04-22",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.11",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Anne",
+      "familyName": "Fouilloux",
+      "@id": "https://orcid.org/0000-0002-1784-2920",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "LifeWatch ERIC"
+      }
+    }
+  ],
+  "referencePublication": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Automated image classification workflow for phytoplankton monitoring",
+      "author": [
+        { "@type": "Person", "givenName": "Wout", "familyName": "Decrop" },
+        { "@type": "Person", "givenName": "Rune", "familyName": "Lagaisse" },
+        { "@type": "Person", "givenName": "Jonas", "familyName": "Mortelmans" },
+        { "@type": "Person", "givenName": "Cristian", "familyName": "Muñiz" },
+        { "@type": "Person", "givenName": "Ignacio", "familyName": "Heredia" },
+        { "@type": "Person", "givenName": "Amanda", "familyName": "Calatrava" },
+        { "@type": "Person", "givenName": "Klaas", "familyName": "Deneudt" }
+      ],
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Frontiers in Marine Science"
+      },
+      "datePublished": "2025",
+      "identifier": "https://doi.org/10.3389/fmars.2025.1699781"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Phytoplankton_EfficientNetV2B0 pretrained model",
+      "identifier": "https://doi.org/10.5281/zenodo.15269453",
+      "datePublished": "2025"
+    },
+    {
+      "@type": "Dataset",
+      "name": "LifeWatch observatory data: phytoplankton annotated training set by FlowCam imaging in the Belgian Part of the North Sea",
+      "identifier": "https://doi.org/10.5281/zenodo.10554845",
+      "datePublished": "2024"
+    }
+  ],
+  "isPartOf": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Science Live",
+      "url": "https://platform.sciencelive4all.org"
+    },
+    {
+      "@type": "Project",
+      "name": "FIESTA-OSCARS",
+      "url": "https://oscars-project.eu/projects/fair-image-analysis-across-sciences"
+    }
+  ],
+  "keywords": [
+    "reproducibility",
+    "reproduction",
+    "FAIR",
+    "phytoplankton",
+    "marine biodiversity",
+    "deep learning",
+    "EfficientNetV2",
+    "FlowCam",
+    "LifeWatch",
+    "FORRT"
+  ]
+}

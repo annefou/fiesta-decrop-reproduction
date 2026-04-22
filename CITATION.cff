@@ -1,0 +1,65 @@
+cff-version: 1.2.0
+title: "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier"
+message: >-
+  If you use this software, please cite both this repository and the
+  original paper by Decrop et al. (2025).
+type: software
+version: "0.1.0"
+date-released: "2026-04-22"
+authors:
+  - given-names: Anne
+    family-names: Fouilloux
+    orcid: "https://orcid.org/0000-0002-1784-2920"
+    affiliation: LifeWatch ERIC
+repository-code: "https://github.com/annefou/fiesta-decrop-reproduction"
+license: MIT
+keywords:
+  - reproducibility
+  - reproduction
+  - FAIR
+  - phytoplankton
+  - marine biodiversity
+  - deep learning
+  - EfficientNetV2
+  - FlowCam
+  - FORRT
+references:
+  - type: article
+    title: >-
+      Automated image classification workflow for phytoplankton monitoring
+    authors:
+      - given-names: Wout
+        family-names: Decrop
+      - given-names: Rune
+        family-names: Lagaisse
+      - given-names: Jonas
+        family-names: Mortelmans
+      - given-names: "Cristian"
+        family-names: "Muñiz"
+      - given-names: "Ignacio"
+        family-names: Heredia
+      - given-names: Amanda
+        family-names: Calatrava
+      - given-names: Klaas
+        family-names: Deneudt
+    journal: "Frontiers in Marine Science"
+    volume: 12
+    pages: 1699781
+    year: 2025
+    doi: "10.3389/fmars.2025.1699781"
+  - type: software
+    title: >-
+      Phytoplankton EfficientNetV2B0 — pretrained model for FlowCam
+      phytoplankton classification
+    authors:
+      - name: "LifeWatch Belgium / VLIZ"
+    doi: "10.5281/zenodo.15269453"
+    year: 2025
+  - type: dataset
+    title: >-
+      LifeWatch observatory data: phytoplankton annotated training set by
+      FlowCam imaging in the Belgian Part of the North Sea
+    authors:
+      - name: "LifeWatch Belgium / VLIZ"
+    doi: "10.5281/zenodo.10554845"
+    year: 2024
