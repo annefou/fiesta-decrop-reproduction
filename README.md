@@ -31,6 +31,17 @@ augmentation, as in the paper).
 
 Full results JSON + per-image prediction matrix are written to `results/`.
 
+## Two notebooks
+
+| Notebook | Input | Output | Purpose |
+|---|---|---|---|
+| `01_reproduce_decrop.py` | `test.txt` (33,718 images) | `results/reproduce_decrop_results.json` + `reproduce_decrop_predictions.npz` | Reproduce the five published metrics |
+| `02_cnn_val_predictions.py` | `val.txt` (33,829 images) | `results/cnn_predictions_val.npz` | Provide CNN predictions on the held-out **val** split for downstream consumers (e.g. [fiesta-scattering-bio](https://github.com/annefou/fiesta-scattering-bio) uses these as meta-training data for a stacked CNN + scattering classifier) |
+
+Both notebooks use **identical pipelines** — same pretrained weights, same
+preprocessing, same 10-crop TTA. The only difference is which split they
+consume.
+
 ## What this reproduction establishes
 
 1. **The pre-trained model behaves as the paper reports.** The Zenodo weights

@@ -11,6 +11,7 @@ project:
   toc:
     - file: index.md
     - file: 01_reproduce_decrop.ipynb
+    - file: 02_cnn_val_predictions.ipynb
 
 site:
   title: "Reproduction of Decrop et al. 2025"

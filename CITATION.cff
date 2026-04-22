@@ -4,7 +4,7 @@ message: >-
   If you use this software, please cite both this repository and the
   original paper by Decrop et al. (2025).
 type: software
-version: "0.1.0"
+version: "0.2.0"
 date-released: "2026-04-22"
 authors:
   - given-names: Anne
