@@ -1,7 +1,7 @@
 {
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier",
   "description": "Independent computational reproduction of the EfficientNetV2-B0 phytoplankton classifier published in Decrop et al. 2025 (Frontiers in Marine Science). Notebook 01 runs the authors' own pretrained weights on their exact held-out test split and confirms all five published metrics to within 0.003 percentage points. Notebook 02 runs the same pipeline on the val split to produce CNN prediction artefacts consumed by downstream stacking experiments (fiesta-scattering-bio). Part of the FIESTA-OSCARS project.",
   "license": "https://spdx.org/licenses/MIT",
