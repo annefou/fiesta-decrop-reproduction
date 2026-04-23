@@ -1,6 +1,7 @@
 # Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier
 
 [![Source DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19701133.svg)](https://doi.org/10.5281/zenodo.19701133)
+[![Docker image DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19709184.svg)](https://doi.org/10.5281/zenodo.19709184)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 > **Independent computational reproduction** of the phytoplankton image classifier
@@ -114,8 +115,8 @@ the scattering-transform experiments:
 
 ## Container image
 
-A Docker container is built on every release and pushed to GitHub Container
-Registry.
+A Docker container is built on every release, pushed to GitHub Container
+Registry, and archived to Zenodo.
 
 ```bash
 docker pull ghcr.io/annefou/fiesta-decrop-reproduction:latest
@@ -123,8 +124,8 @@ docker run --rm -v "$PWD/results:/app/results" \
     ghcr.io/annefou/fiesta-decrop-reproduction:latest
 ```
 
-(Zenodo archive of the Docker image tarball will be available starting with
-the next release; `ZENODO_TOKEN` was added after v0.2.0.)
+Zenodo-archived image tarballs via the
+[Docker image concept DOI 10.5281/zenodo.19709184](https://doi.org/10.5281/zenodo.19709184).
 
 ## How to cite
 
@@ -133,7 +134,7 @@ with the paper it reproduces (Decrop et al. 2025).
 
 ```
 Fouilloux, A. (2026). Reproduction of Decrop et al. 2025 — phytoplankton
-CNN classifier (v0.2.0). Zenodo. https://doi.org/10.5281/zenodo.19701133
+CNN classifier (v0.2.1). Zenodo. https://doi.org/10.5281/zenodo.19701133
 ```
 
 BibTeX:
@@ -143,7 +144,7 @@ BibTeX:
   author    = {Fouilloux, Anne},
   title     = {Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier},
   year      = {2026},
-  version   = {0.2.0},
+  version   = {0.2.1},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.19701133},
   url       = {https://doi.org/10.5281/zenodo.19701133}
