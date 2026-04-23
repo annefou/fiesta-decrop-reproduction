@@ -1,5 +1,8 @@
 # Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier
 
+[![Source DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19701133.svg)](https://doi.org/10.5281/zenodo.19701133)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > **Independent computational reproduction** of the phytoplankton image classifier
 > reported in:
 >
@@ -108,6 +111,50 @@ the scattering-transform experiments:
 | [fiesta-scattering-bio](https://github.com/annefou/fiesta-scattering-bio) | Scattering transform for plankton texture classification |
 | [fiesta-scattering-sst-healpix-geo](https://github.com/annefou/fiesta-scattering-sst-healpix-geo) | SST gap-filling on WGS84 ellipsoid (healpix-geo) |
 | **this repo** | Independent reproduction of the CNN baseline used by the bio comparison |
+
+## Container image
+
+A Docker container is built on every release and pushed to GitHub Container
+Registry.
+
+```bash
+docker pull ghcr.io/annefou/fiesta-decrop-reproduction:latest
+docker run --rm -v "$PWD/results:/app/results" \
+    ghcr.io/annefou/fiesta-decrop-reproduction:latest
+```
+
+(Zenodo archive of the Docker image tarball will be available starting with
+the next release; `ZENODO_TOKEN` was added after v0.2.0.)
+
+## How to cite
+
+If you use this repository, please cite it via its Zenodo DOI together
+with the paper it reproduces (Decrop et al. 2025).
+
+```
+Fouilloux, A. (2026). Reproduction of Decrop et al. 2025 — phytoplankton
+CNN classifier (v0.2.0). Zenodo. https://doi.org/10.5281/zenodo.19701133
+```
+
+BibTeX:
+
+```bibtex
+@software{fouilloux_fiesta_decrop_reproduction,
+  author    = {Fouilloux, Anne},
+  title     = {Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier},
+  year      = {2026},
+  version   = {0.2.0},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.19701133},
+  url       = {https://doi.org/10.5281/zenodo.19701133}
+}
+```
+
+The DOI above is the **concept DOI** — it always resolves to the latest
+release. Specific version DOIs are available on the
+[Zenodo record page](https://doi.org/10.5281/zenodo.19701133).
+
+See [`CITATION.cff`](CITATION.cff) for machine-readable citation metadata.
 
 ## Credits
 
