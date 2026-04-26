@@ -55,6 +55,32 @@ repository's scattering-transform approach is compared. The FIESTA-OSCARS
 project demonstrates FAIR image analysis across astrophysics, environmental
 sciences, and biodiversity.
 
+## FORRT nanopublication chain
+
+The full provenance of this reproduction is recorded as a six-step FORRT
+nanopublication chain on the
+[Science Live](https://platform.sciencelive4all.org) platform — paper → quote
+→ atomic claim → FORRT claim → study → outcome → CiTO citation back to the
+paper. Each step is independently citable and machine-readable.
+
+> **Headline assertion — machine-readable:**
+> [**This reproduction `cito:confirms` Decrop et al. 2025**](https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU)
+>
+> Discovery tools (Scholia, Wikidata pipelines, SPARQL endpoints) can follow
+> this single citation to find that the paper's headline claim has been
+> independently verified — the verifier is this repository.
+
+The five preceding nanopubs build the provenance ladder up to that citation:
+
+| Step | Type | Nanopub URI |
+|---|---|---|
+| 1 | Quote-with-comment | <https://w3id.org/sciencelive/np/RAm0R_xdfpZCX8jGhrMU8LQonht0X6qvfApCekmUCwvgQ> |
+| 2 | AIDA sentence | <https://w3id.org/sciencelive/np/RAlNKRixcGMJ6-pz1AWMhtMv4JChJEock-rBRpEKUroas> |
+| 3 | FORRT Claim (model performance) | <https://w3id.org/sciencelive/np/RAQbvusYubgaYlU7YEPIgPmTwqDoylwiq5FKyrVgF95qM> |
+| 4 | FORRT Reproduction Study | <https://w3id.org/sciencelive/np/RAGtxXgvYl-b7NOkyS3K34z1yDDkPqzGuiTr54nA2uH7U> |
+| 5 | FORRT Replication Outcome (Validated, VeryHigh) | <https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA> |
+| 6 | **CiTO `confirms` Decrop 2025** | **<https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU>** |
+
 ## How to reproduce
 
 See the [notebook](01_reproduce_decrop.ipynb) for the full executable pipeline.

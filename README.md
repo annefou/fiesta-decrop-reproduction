@@ -99,6 +99,37 @@ docker run --rm -v "$PWD/results:/app/results" \
 - **Model code**: [`planktonclas`](https://github.com/lifewatch/planktonclas)
   (Wout Decrop, VLIZ). Apache 2.0.
 
+## FORRT nanopublication chain
+
+The full provenance of this reproduction is recorded as a six-step FORRT
+nanopublication chain on the
+[Science Live](https://platform.sciencelive4all.org) platform. Each step is
+independently citable and machine-readable; together they form the FAIR
+provenance receipt for this reproduction.
+
+> **Headline assertion — machine-readable:**
+> [**This reproduction `cito:confirms` Decrop et al. 2025**](https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU)
+>
+> This single nanopublication encodes the conclusion in a form that
+> discovery tools (Scholia, Wikidata pipelines, SPARQL endpoints) can
+> follow automatically — the paper's headline claim has been independently
+> verified, and the verifier is this repository.
+
+The five preceding nanopubs build the provenance ladder up to that citation:
+
+| Step | Type | Asserts | Nanopub URI |
+|---|---|---|---|
+| 1 | Quote-with-comment | Verbatim quote of Decrop et al. 2025's headline performance claim, with a personal comment on its operational potential | [`RAm0R…`](https://w3id.org/sciencelive/np/RAm0R_xdfpZCX8jGhrMU8LQonht0X6qvfApCekmUCwvgQ) |
+| 2 | AIDA sentence | Atomic, declarative restatement: a CNN identifies phytoplankton taxa across 95 classes at 86.3% top-1 / 98.8% top-5 | [`RAlNK…`](https://w3id.org/sciencelive/np/RAlNKRixcGMJ6-pz1AWMhtMv4JChJEock-rBRpEKUroas) |
+| 3 | FORRT Claim (model performance) | The classification claim, typed as a FORRT model-performance claim | [`RAQbv…`](https://w3id.org/sciencelive/np/RAQbvusYubgaYlU7YEPIgPmTwqDoylwiq5FKyrVgF95qM) |
+| 4 | FORRT Reproduction Study | Methodology: same code package (`planktonclas`), same weights, same `test.txt` split | [`RAGtx…`](https://w3id.org/sciencelive/np/RAGtxXgvYl-b7NOkyS3K34z1yDDkPqzGuiTr54nA2uH7U) |
+| 5 | FORRT Replication Outcome (Validated, VeryHigh) | All five metrics match within 0.003 percentage points | [`RAn_D…`](https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA) |
+| 6 | **CiTO citation — `cito:confirms` Decrop 2025** | The headline assertion above | [**`RArFs…`**](https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU) |
+
+The chain runs: paper → quote → atomic claim → FORRT claim → study (this repo)
+→ outcome (the numbers in the Results table) → CiTO citation back to the
+paper.
+
 ## FIESTA-OSCARS companion repositories
 
 This reproduction is part of the **FIESTA-OSCARS** project — Fair Image analysis
