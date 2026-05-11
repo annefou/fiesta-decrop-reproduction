@@ -1,0 +1,40 @@
+{
+  "reproduction_of": {
+    "paper": "Decrop et al. 2025, Frontiers in Marine Science 12:1699781",
+    "paper_doi": "10.3389/fmars.2025.1699781",
+    "model_doi": "10.5281/zenodo.15269453",
+    "dataset_doi": "10.5281/zenodo.10554845"
+  },
+  "test_set": {
+    "source": "test.txt distributed with pretrained model",
+    "n_images": 200,
+    "n_classes": 60,
+    "ci_smoke_subset": true
+  },
+  "inference": {
+    "tta": "10-crop",
+    "time_seconds": 8.766906976699829,
+    "device": "CPU"
+  },
+  "ours": {
+    "top1_accuracy": 0.85,
+    "top5_accuracy": 0.98,
+    "micro_f1": 0.85,
+    "macro_f1": 0.7995588200506233,
+    "weighted_f1": 0.8438832972582972
+  },
+  "paper": {
+    "top1": 0.8634,
+    "top5": 0.9876,
+    "micro_f1": 0.8634,
+    "macro_f1": 0.7876,
+    "weighted_f1": 0.8625
+  },
+  "deltas_pp": {
+    "top1": -1.3399999999999967,
+    "top5": -0.7600000000000051,
+    "micro_f1": -1.3399999999999967,
+    "macro_f1": 1.195882005062332,
+    "weighted_f1": -1.8616702741702795
+  }
+}

@@ -1,8 +1,14 @@
 # Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier
 
+[![CI](https://github.com/annefou/fiesta-decrop-reproduction/actions/workflows/ci.yml/badge.svg)](https://github.com/annefou/fiesta-decrop-reproduction/actions/workflows/ci.yml)
+[![Jupyter Book](https://github.com/annefou/fiesta-decrop-reproduction/actions/workflows/jupyter-book.yml/badge.svg)](https://annefou.github.io/fiesta-decrop-reproduction/)
+[![Docker](https://github.com/annefou/fiesta-decrop-reproduction/actions/workflows/docker.yml/badge.svg)](https://github.com/annefou/fiesta-decrop-reproduction/pkgs/container/fiesta-decrop-reproduction)
 [![Source DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19701133.svg)](https://doi.org/10.5281/zenodo.19701133)
 [![Docker image DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19709184.svg)](https://doi.org/10.5281/zenodo.19709184)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![FAIR4RS](https://img.shields.io/badge/FAIR4RS-conformant-brightgreen)](https://doi.org/10.15497/RDA00068)
+[![FORRT](https://img.shields.io/badge/FORRT-replication-blue)](https://forrt.org/)
+[![Science Live](https://img.shields.io/badge/Science%20Live-nanopub%20chain-purple)](https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA)
 
 > **Independent computational reproduction** of the phytoplankton image classifier
 > reported in:

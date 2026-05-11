@@ -1,0 +1,111 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.2/context",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "ro-crate-metadata.json",
+      "conformsTo": [
+        { "@id": "https://w3id.org/ro/crate/1.2" },
+        { "@id": "https://w3id.org/ro/wfrun/process/0.5" },
+        { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" }
+      ],
+      "about": { "@id": "./" }
+    },
+    {
+      "@id": "./",
+      "@type": ["Dataset", "ResearchObject"],
+      "name": "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier",
+      "description": "Independent computational reproduction of Decrop et al. 2025's EfficientNetV2-B0 phytoplankton image classifier on the authors' exact test split (33,718 images, 95 classes) using their pretrained weights. Headline result: top-1 86.3426 % matches the paper's reported 86.34 % to 0.003 percentage points; top-5 98.7633 % matches paper's 98.76 % to 0.003 percentage points.",
+      "license": { "@id": "https://spdx.org/licenses/MIT" },
+      "publisher": { "@id": "https://orcid.org/0000-0002-1784-2920" },
+      "author": [{ "@id": "https://orcid.org/0000-0002-1784-2920" }],
+      "mainEntity": { "@id": "Snakefile" },
+      "identifier": "https://doi.org/10.5281/zenodo.19701133",
+      "citation": [
+        { "@id": "https://doi.org/10.3389/fmars.2025.1699781" },
+        { "@id": "https://doi.org/10.5281/zenodo.15269453" },
+        { "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA" }
+      ],
+      "hasPart": [
+        { "@id": "Snakefile" },
+        { "@id": "environment.yml" },
+        { "@id": "Dockerfile" },
+        { "@id": "01_reproduce_decrop.py" },
+        { "@id": "02_cnn_val_predictions.py" },
+        { "@id": "CITATION.cff" },
+        { "@id": "codemeta.json" }
+      ]
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-1784-2920",
+      "@type": "Person",
+      "name": "Anne Fouilloux",
+      "affiliation": "LifeWatch ERIC"
+    },
+    {
+      "@id": "Snakefile",
+      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
+      "name": "Replication pipeline",
+      "description": "Snakemake workflow orchestrating Decrop's pretrained-model retrieval, test-split inference with 10-crop TTA, and val-split inference (consumed by fiesta-scattering-bio's stacking step).",
+      "programmingLanguage": { "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake" }
+    },
+    {
+      "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake",
+      "@type": "ComputerLanguage",
+      "name": "Snakemake",
+      "url": "https://snakemake.readthedocs.io/"
+    },
+    {
+      "@id": "01_reproduce_decrop.py",
+      "@type": ["File", "SoftwareSourceCode", "Notebook"],
+      "name": "Step 01 — Reproduce Decrop 2025 test-set evaluation",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "02_cnn_val_predictions.py",
+      "@type": ["File", "SoftwareSourceCode", "Notebook"],
+      "name": "Step 02 — Validation-split CNN predictions (for fiesta-scattering-bio stacking)",
+      "programmingLanguage": "Python"
+    },
+    {
+      "@id": "environment.yml",
+      "@type": ["File", "ConfigurationFile"],
+      "name": "Conda environment specification",
+      "encodingFormat": "application/yaml"
+    },
+    {
+      "@id": "Dockerfile",
+      "@type": ["File", "ConfigurationFile"],
+      "name": "Container build specification",
+      "encodingFormat": "text/x-dockerfile"
+    },
+    {
+      "@id": "CITATION.cff",
+      "@type": ["File"],
+      "name": "Citation File Format metadata",
+      "encodingFormat": "application/yaml"
+    },
+    {
+      "@id": "codemeta.json",
+      "@type": ["File"],
+      "name": "CodeMeta-2.0 software metadata",
+      "encodingFormat": "application/ld+json"
+    },
+    {
+      "@id": "https://doi.org/10.3389/fmars.2025.1699781",
+      "@type": "ScholarlyArticle",
+      "name": "Automated image classification workflow for phytoplankton monitoring (Decrop et al. 2025)",
+      "datePublished": "2025"
+    },
+    {
+      "@id": "https://doi.org/10.5281/zenodo.15269453",
+      "@type": "Dataset",
+      "name": "Decrop 2025 — pretrained EfficientNetV2-B0 model + test/val splits"
+    },
+    {
+      "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA",
+      "@type": "CreativeWork",
+      "name": "FORRT Replication Outcome — Validated, Very High confidence"
+    }
+  ]
+}
