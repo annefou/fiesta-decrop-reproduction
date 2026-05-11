@@ -4,9 +4,10 @@ data/
 # Pretrained model (47 MB, downloaded from Zenodo 15269453)
 models/
 
-# Results: keep JSON metrics; ignore predictions npz (large) and figures
+# Results: keep canonical JSON metrics; ignore smoke-test JSON, predictions npz (large), and figures
 results/*.png
 results/*.npz
+results/*_smoke.json
 !results/.gitkeep
 
 # Python / Jupyter
