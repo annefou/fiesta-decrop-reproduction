@@ -201,6 +201,19 @@ See [`CITATION.cff`](CITATION.cff) for machine-readable citation metadata.
   artefacts.
 - **This reproduction**: Anne Fouilloux, LifeWatch ERIC (FIESTA-OSCARS).
 
+## Funding & acknowledgements
+
+This repository is part of the **FIESTA** project (*FAIR image analysis across
+sciences*), funded under [OSCARS](https://oscars-project.eu/projects/fair-image-analysis-across-sciences)
+through its cascading grant mechanism.
+
+> The authors acknowledge the OSCARS project, which has received funding from the
+> European Commission's Horizon Europe Research and Innovation programme under
+> grant agreement No. 101129751.
+
+<p><img src="docs/images/funded-by-oscars-eu.png"
+        alt="OSCARS — Funded by the European Union" height="60"></p>
+
 ## License
 
 Code: MIT. See `LICENSE`.
