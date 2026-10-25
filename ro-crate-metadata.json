@@ -1,111 +1,336 @@
 {
-  "@context": "https://w3id.org/ro/crate/1.2/context",
-  "@graph": [
-    {
-      "@type": "CreativeWork",
-      "@id": "ro-crate-metadata.json",
-      "conformsTo": [
-        { "@id": "https://w3id.org/ro/crate/1.2" },
-        { "@id": "https://w3id.org/ro/wfrun/process/0.5" },
-        { "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0" }
-      ],
-      "about": { "@id": "./" }
-    },
-    {
-      "@id": "./",
-      "@type": ["Dataset", "ResearchObject"],
-      "name": "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier",
-      "description": "Independent computational reproduction of Decrop et al. 2025's EfficientNetV2-B0 phytoplankton image classifier on the authors' exact test split (33,718 images, 95 classes) using their pretrained weights. Headline result: top-1 86.3426 % matches the paper's reported 86.34 % to 0.003 percentage points; top-5 98.7633 % matches paper's 98.76 % to 0.003 percentage points.",
-      "license": { "@id": "https://spdx.org/licenses/MIT" },
-      "publisher": { "@id": "https://orcid.org/0000-0002-1784-2920" },
-      "author": [{ "@id": "https://orcid.org/0000-0002-1784-2920" }],
-      "mainEntity": { "@id": "Snakefile" },
-      "identifier": "https://doi.org/10.5281/zenodo.19701133",
-      "citation": [
-        { "@id": "https://doi.org/10.3389/fmars.2025.1699781" },
-        { "@id": "https://doi.org/10.5281/zenodo.15269453" },
-        { "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA" }
-      ],
-      "hasPart": [
-        { "@id": "Snakefile" },
-        { "@id": "environment.yml" },
-        { "@id": "Dockerfile" },
-        { "@id": "01_reproduce_decrop.py" },
-        { "@id": "02_cnn_val_predictions.py" },
-        { "@id": "CITATION.cff" },
-        { "@id": "codemeta.json" }
-      ]
-    },
-    {
-      "@id": "https://orcid.org/0000-0002-1784-2920",
-      "@type": "Person",
-      "name": "Anne Fouilloux",
-      "affiliation": "LifeWatch ERIC"
-    },
-    {
-      "@id": "Snakefile",
-      "@type": ["File", "SoftwareSourceCode", "ComputationalWorkflow"],
-      "name": "Replication pipeline",
-      "description": "Snakemake workflow orchestrating Decrop's pretrained-model retrieval, test-split inference with 10-crop TTA, and val-split inference (consumed by fiesta-scattering-bio's stacking step).",
-      "programmingLanguage": { "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake" }
-    },
-    {
-      "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake",
-      "@type": "ComputerLanguage",
-      "name": "Snakemake",
-      "url": "https://snakemake.readthedocs.io/"
-    },
-    {
-      "@id": "01_reproduce_decrop.py",
-      "@type": ["File", "SoftwareSourceCode", "Notebook"],
-      "name": "Step 01 — Reproduce Decrop 2025 test-set evaluation",
-      "programmingLanguage": "Python"
-    },
-    {
-      "@id": "02_cnn_val_predictions.py",
-      "@type": ["File", "SoftwareSourceCode", "Notebook"],
-      "name": "Step 02 — Validation-split CNN predictions (for fiesta-scattering-bio stacking)",
-      "programmingLanguage": "Python"
-    },
-    {
-      "@id": "environment.yml",
-      "@type": ["File", "ConfigurationFile"],
-      "name": "Conda environment specification",
-      "encodingFormat": "application/yaml"
-    },
-    {
-      "@id": "Dockerfile",
-      "@type": ["File", "ConfigurationFile"],
-      "name": "Container build specification",
-      "encodingFormat": "text/x-dockerfile"
-    },
-    {
-      "@id": "CITATION.cff",
-      "@type": ["File"],
-      "name": "Citation File Format metadata",
-      "encodingFormat": "application/yaml"
-    },
-    {
-      "@id": "codemeta.json",
-      "@type": ["File"],
-      "name": "CodeMeta-2.0 software metadata",
-      "encodingFormat": "application/ld+json"
-    },
-    {
-      "@id": "https://doi.org/10.3389/fmars.2025.1699781",
-      "@type": "ScholarlyArticle",
-      "name": "Automated image classification workflow for phytoplankton monitoring (Decrop et al. 2025)",
-      "datePublished": "2025"
-    },
-    {
-      "@id": "https://doi.org/10.5281/zenodo.15269453",
-      "@type": "Dataset",
-      "name": "Decrop 2025 — pretrained EfficientNetV2-B0 model + test/val splits"
-    },
-    {
-      "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA",
-      "@type": "CreativeWork",
-      "name": "FORRT Replication Outcome — Validated, Very High confidence"
-    }
-  ]
+    "@context": "https://w3id.org/ro/crate/1.2/context",
+    "@graph": [
+        {
+            "@id": "./",
+            "@type": "Dataset",
+            "author": {
+                "@id": "https://orcid.org/0000-0002-1784-2920"
+            },
+            "citation": {
+                "@id": "https://doi.org/10.3389/fmars.2025.1699781"
+            },
+            "codeRepository": "https://github.com/annefou/fiesta-decrop-reproduction",
+            "conformsTo": [
+                {
+                    "@id": "https://w3id.org/np/RAiEW_g7wsXXMJINFJ3Qx7h2avPu1rx4yp1SE7Mw8jFkU"
+                }
+            ],
+            "datePublished": "2026-04-22",
+            "description": "Independent computational reproduction of the EfficientNetV2-B0 phytoplankton classifier published in Decrop et al. 2025 (Frontiers in Marine Science). Notebook 01 runs the authors' own pretrained weights on their exact held-out test split and confirms all five published metrics to within 0.003 percentage points. Notebook 02 runs the same pipeline on the val split to produce CNN prediction artefacts consumed by downstream stacking experiments (fiesta-scattering-bio). Part of the FIESTA-OSCARS project.",
+            "funder": {
+                "@id": "https://ror.org/00k4n6c32"
+            },
+            "funding": {
+                "@id": "https://cordis.europa.eu/project/id/101129751"
+            },
+            "hasPart": [
+                {
+                    "@id": "Snakefile"
+                },
+                {
+                    "@id": "01_reproduce_decrop.py"
+                },
+                {
+                    "@id": "02_cnn_val_predictions.py"
+                },
+                {
+                    "@id": "environment.yml"
+                },
+                {
+                    "@id": "Dockerfile"
+                },
+                {
+                    "@id": "config.yaml"
+                },
+                {
+                    "@id": "results/reproduce_decrop_results.json"
+                },
+                {
+                    "@id": "https://doi.org/10.5281/zenodo.10554845"
+                },
+                {
+                    "@id": "https://doi.org/10.5281/zenodo.15269453"
+                },
+                {
+                    "@id": "https://doi.org/10.5281/zenodo.19701133"
+                }
+            ],
+            "identifier": {
+                "@id": "#version-doi"
+            },
+            "keywords": [
+                "reproducibility",
+                "reproduction",
+                "FAIR",
+                "phytoplankton",
+                "marine biodiversity",
+                "deep learning",
+                "EfficientNetV2",
+                "FlowCam",
+                "FORRT"
+            ],
+            "license": {
+                "@id": "https://spdx.org/licenses/MIT"
+            },
+            "mainEntity": {
+                "@id": "Snakefile"
+            },
+            "name": "Reproduction of Decrop et al. 2025 — phytoplankton CNN classifier",
+            "publisher": {
+                "@id": "https://ror.org/02a8eka68"
+            },
+            "sameAs": {
+                "@id": "https://doi.org/10.5281/zenodo.19701133"
+            },
+            "subjectOf": [
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RAm0R_xdfpZCX8jGhrMU8LQonht0X6qvfApCekmUCwvgQ"
+                },
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RAlNKRixcGMJ6-pz1AWMhtMv4JChJEock-rBRpEKUroas"
+                },
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RAQbvusYubgaYlU7YEPIgPmTwqDoylwiq5FKyrVgF95qM"
+                },
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RAGtxXgvYl-b7NOkyS3K34z1yDDkPqzGuiTr54nA2uH7U"
+                },
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA"
+                },
+                {
+                    "@id": "https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU"
+                }
+            ],
+            "version": "0.2.1"
+        },
+        {
+            "@id": "ro-crate-metadata.json",
+            "@type": "CreativeWork",
+            "about": {
+                "@id": "./"
+            },
+            "conformsTo": {
+                "@id": "https://w3id.org/ro/crate/1.2"
+            }
+        },
+        {
+            "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake",
+            "@type": "ComputerLanguage",
+            "name": "Snakemake",
+            "url": {
+                "@id": "https://snakemake.readthedocs.io/"
+            },
+            "version": "not pinned"
+        },
+        {
+            "@id": "Snakefile",
+            "@type": [
+                "File",
+                "SoftwareSourceCode",
+                "ComputationalWorkflow"
+            ],
+            "contentSize": "682",
+            "description": "Replication pipeline (Snakemake): download, clean, analyse, figures.",
+            "encodingFormat": "text/x-snakemake",
+            "name": "Snakefile",
+            "programmingLanguage": {
+                "@id": "https://w3id.org/workflowhub/workflow-ro-crate#snakemake"
+            }
+        },
+        {
+            "@id": "01_reproduce_decrop.py",
+            "@type": "File",
+            "contentSize": "10540",
+            "description": "Script 01_reproduce_decrop",
+            "encodingFormat": "text/x-python",
+            "name": "01_reproduce_decrop.py"
+        },
+        {
+            "@id": "02_cnn_val_predictions.py",
+            "@type": "File",
+            "contentSize": "7297",
+            "description": "Script 02_cnn_val_predictions",
+            "encodingFormat": "text/x-python",
+            "name": "02_cnn_val_predictions.py"
+        },
+        {
+            "@id": "environment.yml",
+            "@type": "File",
+            "contentSize": "570",
+            "description": "Conda environment",
+            "encodingFormat": "text/plain",
+            "name": "environment.yml"
+        },
+        {
+            "@id": "Dockerfile",
+            "@type": "File",
+            "contentSize": "763",
+            "description": "Container build specification",
+            "encodingFormat": "text/plain",
+            "name": "Dockerfile"
+        },
+        {
+            "@id": "config.yaml",
+            "@type": "File",
+            "contentSize": "10528",
+            "description": "Configuration",
+            "encodingFormat": "text/plain",
+            "name": "config.yaml"
+        },
+        {
+            "@id": "results/reproduce_decrop_results.json",
+            "@type": "File",
+            "contentSize": "974",
+            "description": "Result reproduce_decrop_results",
+            "encodingFormat": "application/json",
+            "name": "results/reproduce_decrop_results.json"
+        },
+        {
+            "@id": "https://doi.org/10.5281/zenodo.10554845",
+            "@type": "File",
+            "description": "LifeWatch observatory data: phytoplankton annotated training set by FlowCam imaging",
+            "encodingFormat": "text/html",
+            "license": {
+                "@id": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "name": "LifeWatch observatory data: phytoplankton annotated training set by FlowCam imaging",
+            "sdDatePublished": "2026-10-24"
+        },
+        {
+            "@id": "https://doi.org/10.5281/zenodo.15269453",
+            "@type": "File",
+            "description": "Pre-trained phytoplankton species classifier model (Decrop et al.)",
+            "encodingFormat": "text/html",
+            "license": {
+                "@id": "https://creativecommons.org/licenses/by/4.0/"
+            },
+            "name": "Pre-trained phytoplankton species classifier model (Decrop et al.)",
+            "sdDatePublished": "2026-10-24"
+        },
+        {
+            "@id": "https://ror.org/02a8eka68",
+            "@type": "Organization",
+            "name": "LifeWatch ERIC",
+            "url": "https://www.lifewatch.eu/"
+        },
+        {
+            "@id": "https://orcid.org/0000-0002-1784-2920",
+            "@type": "Person",
+            "affiliation": {
+                "@id": "https://ror.org/02a8eka68"
+            },
+            "name": "Anne Fouilloux"
+        },
+        {
+            "@id": "https://ror.org/00k4n6c32",
+            "@type": "Organization",
+            "name": "European Commission",
+            "url": "https://commission.europa.eu/"
+        },
+        {
+            "@id": "https://cordis.europa.eu/project/id/101129751",
+            "@type": "Grant",
+            "funder": {
+                "@id": "https://ror.org/00k4n6c32"
+            },
+            "identifier": "101129751",
+            "name": "OSCARS: Open Science Clusters' Action for Research and Society"
+        },
+        {
+            "@id": "https://spdx.org/licenses/MIT",
+            "@type": "CreativeWork",
+            "description": "MIT licence for the code.",
+            "name": "MIT License"
+        },
+        {
+            "@id": "https://w3id.org/np/RAiEW_g7wsXXMJINFJ3Qx7h2avPu1rx4yp1SE7Mw8jFkU",
+            "@type": [
+                "CreativeWork",
+                "Profile"
+            ],
+            "description": "The FAIR Enabling Resources the bioimaging community of OSCARS-FIESTA agreed to use.",
+            "name": "FAIR Implementation Profile: Bioimaging (OSCARS-FIESTA)"
+        },
+        {
+            "@id": "#version-doi",
+            "@type": "PropertyValue",
+            "name": "Version DOI",
+            "propertyID": "https://registry.identifiers.org/registry/doi",
+            "url": "https://doi.org/10.5281/zenodo.19701133",
+            "value": "10.5281/zenodo.19701133"
+        },
+        {
+            "@id": "https://doi.org/10.5281/zenodo.19701133",
+            "@type": "CreativeWork",
+            "description": "Archived release: full source tree, results and figures.",
+            "license": {
+                "@id": "https://spdx.org/licenses/MIT"
+            },
+            "name": "Release v0.2.1 (Zenodo version DOI)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RAm0R_xdfpZCX8jGhrMU8LQonht0X6qvfApCekmUCwvgQ",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "Quote-with-comment (FORRT chain step 01)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RAlNKRixcGMJ6-pz1AWMhtMv4JChJEock-rBRpEKUroas",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "AIDA Sentence (FORRT chain step 02)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RAQbvusYubgaYlU7YEPIgPmTwqDoylwiq5FKyrVgF95qM",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "FORRT Claim (FORRT chain step 03)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RAGtxXgvYl-b7NOkyS3K34z1yDDkPqzGuiTr54nA2uH7U",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "FORRT Reproduction Study (FORRT chain step 04)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RAn_DYEINS9hSmULEWNd8JmdPOykzptJPJCSqiatNLBrA",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "FORRT Replication Outcome (FORRT chain step 05)"
+        },
+        {
+            "@id": "https://w3id.org/sciencelive/np/RArFs1V-cAEw19zHbMFXmTr-R34PlGdMHCOt6EQeW64jU",
+            "@type": "CreativeWork",
+            "additionalType": "Nanopublication",
+            "encodingFormat": "application/trig",
+            "name": "CiTO Citation (FORRT chain step 06)"
+        },
+        {
+            "@id": "https://doi.org/10.3389/fmars.2025.1699781",
+            "@type": "ScholarlyArticle",
+            "name": "Decrop et al. 2025, automated image classification workflow for phytoplankton monitoring"
+        },
+        {
+            "@id": "https://w3id.org/ro/crate/1.2",
+            "@type": "CreativeWork",
+            "name": "https://w3id.org/ro/crate/1.2"
+        },
+        {
+            "@id": "https://snakemake.readthedocs.io/",
+            "@type": "CreativeWork",
+            "name": "Snakemake documentation"
+        },
+        {
+            "@id": "https://creativecommons.org/licenses/by/4.0/",
+            "@type": "CreativeWork",
+            "name": "Creative Commons Attribution 4.0 International"
+        }
+    ]
 }
